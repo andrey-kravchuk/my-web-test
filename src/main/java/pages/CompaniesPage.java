@@ -19,14 +19,15 @@ public class CompaniesPage extends MainPage {
 
     public CompaniesPage searchCompany (String companyName) {
         searchInput.setValue(companyName);
-        $$(".l-items > li[class='l-company'] .cn-a").first().shouldHave(Condition.exactText(companyName));
+        $(".btn-search").click();
+        $$(".l-items > li[class='l-company'] .cn-a").first().shouldHave(Condition.exactText(companyName)).click();
         return this;
     }
 
-    public CompaniesPage openCompanyPage(String companyName) {
-        $x("//a[@class='cn-a' and text()='" + companyName + "']").click();
-        return this;
-    }
+//    public CompaniesPage openCompanyPage(String companyName) {
+//        $x("//a[@class='cn-a' and text()='\" + companyName + \"']").click();
+//        return this;
+//    }
 
     public CompaniesPage clickOnCompanyWebsiteAndVerifyTitle(String nameOrHandleOrTitle) {
         $(".company-info .site > a ").click();
