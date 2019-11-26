@@ -1,8 +1,10 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.interactions.Action;
 
 import static com.codeborne.selenide.Selenide.$;
 import static org.testng.Assert.assertEquals;
@@ -20,10 +22,16 @@ public class SalariesPage extends MainPage {
     private SelenideElement programmingLanguageSelect = $("[name='language']");
     private SelenideElement periodSelect = $("[name='period']");
     private SelenideElement slider = salariesForm.$(".ui-slider-range");
+    private ElementsCollection sliderHandle = salariesForm.findAll(".ui-slider-handle");
 
 
-    public SalariesPage setSlider(String sliderPosition){
-        slider.selectOption(sliderPosition);
+    public SalariesPage setLeftSlider(int sliderPosition) {
+        Selenide.actions().dragAndDropBy(sliderHandle.get(0), sliderPosition, 0).perform();
+        return this;
+    }
+
+    public SalariesPage setRightSlider(int sliderPosition) {
+        Selenide.actions().dragAndDropBy(sliderHandle.get(1), sliderPosition, 0).perform();
         return this;
     }
 
