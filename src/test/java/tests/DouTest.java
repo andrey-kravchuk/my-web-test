@@ -31,16 +31,14 @@ public class DouTest extends TestBase {
                 .shouldSeeSelectedLanguage("Java")
                 .shouldSeeThatSliderIsSetCorrectly("left: 30%; width: 0%;")//3 years
                 .shouldSeeMaxSalary("4000")
-                .setJobPosition("Junior Software Engineer")
-                .setPeriod("июнь-июль 2019")
                 .setRightSlider(60) //5 years
                 .setLeftSlider(-30) //2 years
                 .shouldSeeSelectedCity("вся Украина")
-                .shouldSeeSelectedJob("Junior Software Engineer")
+                .shouldSeeSelectedJob("Senior Software Engineer")
                 .shouldSeeSelectedPeriod("июнь-июль 2019")
                 .shouldSeeSelectedLanguage("Java")
                 .shouldSeeThatSliderIsSetCorrectly("left: 20%; width: 30%;") //2-5 years
-                .shouldSeeMedianSalary("1300");
+                .shouldSeeMedianSalary("3500");
     }
 
 
